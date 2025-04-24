@@ -19,16 +19,15 @@ results/horse_pop_plot_largest_sd.png results/horse_pops_plot.png results/horses
 reports/qmd_example.html: results reports/qmd_example.qmd
 	quarto render reports/qmd_example.qmd --to html
 
-reports/qmd_example.pdf: results reports/qmd_example.qmd
-	quarto render reports/qmd_example.qmd --to pdf
-
 docs/index.html: results reports/qmd_example.qmd
 	quarto render reports/qmd_example.qmd --output-dir docs --output index.html
+
+reports/qmd_example.pdf: results reports/qmd_example.qmd
+	quarto render reports/qmd_example.qmd --to pdf
 
 # clean
 clean:
 	rm -rf results
 	rm -rf reports/qmd_example.html \
 		reports/qmd_example.pdf \
-		reports/qmd_example_files \
-		docs/index.html
+		reports/qmd_example_files
